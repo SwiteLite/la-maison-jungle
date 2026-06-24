@@ -1,0 +1,33 @@
+.solde {
+    color: red;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 2px 4px;
+    background-color: red;
+    color: white;
+    margin-left: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.plantList {
+    list-style-type: none;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+.plantItem {
+    margin: 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	text-transform: capitalize;
+}
+
+.plantItemCover {
+	height: 220px;
+	width: 220px;
+	border-radius: 20px;
+}

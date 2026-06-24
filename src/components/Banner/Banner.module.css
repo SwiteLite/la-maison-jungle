@@ -1,0 +1,21 @@
+.banner {
+  background-color: #f8f9fa;
+  text-align: right;
+	padding: 32px;
+	border-bottom: solid 1px black;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	align-items: center;
+}
+
+.title {
+  color: #31b572;
+  font-size: 2rem;
+}
+
+.bannerLogo {
+  height: 60px;
+  width: auto;
+  margin-right: 10px;
+}
