@@ -1,31 +1,43 @@
   import { plantList } from '../../datas/plantList'
   import styles from './Shopping.module.css'
-  import CareScale from '../CareScaler/CareScale'
   import PlantItem from '../PlantItem/PlantItem'
 
-  function ShoppingList() {
+    const ShoppingList = ({cat, cart, updateCart}) => {
 
 
-    const categories = plantList.reduce(
-      (acc, plantList) => acc.includes(plantList.category) ? acc : acc.concat(plantList.category), []
-    )
+    const filteredPlants = plantList.filter((plant) =>
+        cat === 'all' || plant.category === cat
+      )
+
+    const addToCart = (name, price) => {
+		const currentPlantSaved = cart.find((plant) => plant.name === name)
+		if (currentPlantSaved) {
+			const cartFilteredCurrentPlant = cart.filter(
+				(plant) => plant.name !== name
+			)
+			updateCart([
+				...cartFilteredCurrentPlant,
+				{ name, price, amount: currentPlantSaved.amount + 1 }
+			])
+		} else {
+			updateCart([...cart, { name, price, amount: 1 }])
+		}
+	}
+
     return (
-        <div>
-            <ul>
-                {categories.map((category) => (
-                    <li key={category}>{category}</li>
-                ))}
-            </ul>
-            <ul className={styles.plantList}>
-                {plantList.map((plant) => (
-
-                    <PlantItem name={plant.name} cover={plant.cover} water={plant.water} light={plant.light} id={plant.id} />
-                    {/*<li key={plant.id} className={styles.plantItem}>
-                        {plant.isBestSale && plant.category === "classique" && <span>🔥 </span>}
-                        {plant.name} 
-                        <CareScale careType='water' scaleValue={plant.water} />
-						<CareScale careType='light' scaleValue={plant.light} />
-                    </li>*/}
+        <div >
+            <ul className={styles.shoppingList}>
+                {filteredPlants.map((plant) => (
+                    <div key={plant.id}>
+                    <PlantItem 
+                        name={plant.name} 
+                        cover={plant.cover} 
+                        water={plant.water} 
+                        light={plant.light} 
+                        price={plant.price} 
+                    />
+                    <button onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
+                </div>
                 ))}
             </ul>
         </div>
