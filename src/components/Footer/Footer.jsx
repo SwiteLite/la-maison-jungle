@@ -26,7 +26,10 @@ const Footer = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)} 
                 onBlur={()=>handleBlur(inputValue)}/>
-            <button onClick={() => alert(inputValue)}>Envoyer 🚨</button>
+            <button 
+            className={styles.sendMailButton}
+            onClick={() => alert(inputValue)}>
+                Envoyer 🚨</button>
 		</footer>
 	)
 }

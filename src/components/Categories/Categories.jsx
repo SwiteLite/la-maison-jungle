@@ -4,7 +4,11 @@ const Categories = ({selectCat,  categoriesList}) => {
     
 	return (
         <div className={styles.categories}>	
-            <select onChange={(e) => selectCat(e.target.value)}
+
+        <label htmlFor="categories">Filtrer par catégorie : </label>
+            <select 
+                onChange={(e) => selectCat(e.target.value)}
+                id="categories"
                 className={styles.categoriesSelect}>
                 <option value="all">Tout</option>
                 {categoriesList.map((cat) => (

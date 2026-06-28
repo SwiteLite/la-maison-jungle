@@ -2,14 +2,29 @@
 .footer {
 	color: black;
 	padding: 32px;
-	border-top: solid 3px black;
+
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+	border-top: solid 5px #ee6055;
 	align-items: center;
 	font-weight: 500;
+	background-color: #f2f8ee
+	
 }
 
 .footerElem {
 	margin-bottom: 10px;
+}
+
+.sendMailButton {
+	margin-top: 15px;
+	background: #60D394;
+	color: white;
+	border: 1px solid #60D394;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 8px 16px;
+	border-radius: 15px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }

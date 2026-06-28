@@ -5,58 +5,56 @@ import styles from './Cart.module.css'
 const Cart = ({cart, updateCart}) => {
   const [isOpen, setIsOpen] = useState(true)
 
-  const total = cart.reduce(
-      (acc, plantType) => acc + plantType.amount * plantType.price,
-      0
-  )
+	const total = cart.reduce(
+		(acc, plantType) => acc + plantType.amount * plantType.price,
+		0
+	)
 
-  useEffect(() => {
-    document.title = `LMJ: ${total}€ d'achats`
-}, [total])
+	useEffect(() => {
+		document.title = `LMJ: ${total}€ d'achats`
+	}, [total])
 
+	return isOpen ? (
+		<div className={styles.cart}>
+			<button
+				className={styles.cartButton}
+				onClick={() => setIsOpen(false)}
+			>
+				Fermer
+			</button>
 
-
-  return isOpen ? (
-    <div className={styles.cart}>
-      <div>
-        <button 
-          className={styles.cartToggleButton}
-          onClick={() => setIsOpen(false)}>
-            
-            Fermer
-        </button>
-
-
-        {cart.length > 0 ? (
-        <div className={styles.cart}>
-          <h2>Panier</h2>
-            <ul>
-              {cart.map(({ name, price, amount }, index) => (
-                  <div key={`${name}-${index}`}>
-                      {name} {price}€ x {amount}
-                  </div>
-              ))}
-            </ul>
-            <h3>Total :{total}€</h3>
-            <button onClick={() => updateCart([])}>Vider le panier</button>
-        </div>
-        ) : (
-            <div>Votre panier est vide</div>
-        )}
-     </div>
-    </div>
-    
-  ) : (
-    <div className={styles.cartClosed}>
-        <button
-            className='cartToggleButton'
-            onClick={() => setIsOpen(true)}
-        >
-            Ouvrir le Panier
-        </button>
-    </div>
-  )
+			{cart.length > 0 ? (
+				<>
+					<h2 className={styles.title}>Panier</h2>
+					<ul className={styles.list}>
+						{cart.map(({ name, price, amount }, index) => (
+							<li className={styles.cartItem} key={`${name}-${index}`}>
+								{name} {price}€ × {amount}
+							</li>
+						))}
+					</ul>
+					<p className={styles.total}>Total : {total}€</p>
+					<button
+						className={styles.cartButton}
+						onClick={() => updateCart([])}
+					>
+						Vider le panier
+					</button>
+				</>
+			) : (
+				<p className={styles.empty}>Votre panier est vide</p>
+			)}
+		</div>
+	) : (
+		<div className={styles.cartClosed}>
+			<button
+				className={styles.cartButton}
+				onClick={() => setIsOpen(true)}
+			>
+				Ouvrir le Panier
+			</button>
+		</div>
+	)
 }
 
 export default Cart
-

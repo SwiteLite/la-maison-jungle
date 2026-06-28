@@ -28,7 +28,10 @@
         <div >
             <ul className={styles.shoppingList}>
                 {filteredPlants.map((plant) => (
-                    <div key={plant.id}>
+                    <div
+                     key={plant.id}
+                     className={styles.plantItemContainer}
+                     >
                     <PlantItem 
                         name={plant.name} 
                         cover={plant.cover} 
@@ -36,7 +39,15 @@
                         light={plant.light} 
                         price={plant.price} 
                     />
-                    <button onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
+                    <div className={styles.priceContainer}>
+                      <span className={styles.price}>{plant.price}€</span>
+                      <button 
+                        className={styles.cartAddButton} 
+                        onClick={() => addToCart(plant.name, plant.price)}>
+                        Ajouter
+                      </button>
+                    </div>
+                    
                 </div>
                 ))}
             </ul>
@@ -46,6 +57,4 @@
 
 
  
-  
-  
   export default ShoppingList

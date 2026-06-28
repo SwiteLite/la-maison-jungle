@@ -1,29 +1,64 @@
+/* Panier ouvert */
 .cart {
-  background-color: #31b572;
-  color: white;
-  padding: 32px;
-}
-.cartAddButton {
-	margin-left: 32px;
-	cursor: pointer;
+	background-color: #60d394;
+	color: white;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
 }
 
-.cartToggleButton {
+.title {
+	margin: 0;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.cartItem {
+	padding: 4px 0;
+	text-align: center;
+}
+
+.total {
+	margin: 0;
+	font-weight: 600;
+}
+
+.empty {
+	margin: 0;
+	text-align: center;
+}
+
+/* Panier fermé */
+.cartClosed {
+	padding: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* Bouton partagé : Fermer, Vider, Ouvrir */
+.cartButton {
 	background: none;
-	outline: none;
-	border: none;
+	border: 1px solid currentColor;
 	font-weight: 600;
 	cursor: pointer;
-	align-self: self-start;
-	padding: 0;
-	color: white;
+	padding: 8px 16px;
+	border-radius: 15px;
+	color: inherit;
 }
 
-.cartClosed {
-	padding: 32px;
-	width: 200px;
+.cartClosed .cartButton {
+	color: #333;
+	border-color: #31b572;
 }
 
-.cartClosed > button {
-	color: black;
+.cartButton:hover {
+	opacity: 0.85;
 }

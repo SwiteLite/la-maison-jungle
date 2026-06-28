@@ -5,11 +5,9 @@ import Form from './components/Form/form'
 import QuestionForm from './components/Form/questionForm'
 import Footer from './components/Footer/Footer'
 import Categories from './components/Categories/Categories'
+import styles from './styles/Layout.module.css'
 import { useState, useEffect } from 'react'
 
-
-import './styles/Layout.css'
- 
 
 const App = () => {
 
@@ -29,10 +27,10 @@ const App = () => {
     <div>
       <Banner />
      
-      <div className='lmj-layout-inner'>
+      <div className={styles.layoutInner}>
          
             <Cart cart={cart} updateCart={updateCart}/>
-            <div>
+            <div className={styles.shopping}>
               <Categories  categoriesList={categoriesList} selectCat={selectCat}/>
               <ShoppingList cat ={cat} cart={cart} updateCart={updateCart}/>
             </div>

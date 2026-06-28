@@ -1,0 +1,9 @@
+.layoutInner {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.shopping {
+	flex: 1;
+}

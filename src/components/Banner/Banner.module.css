@@ -1,8 +1,9 @@
 .banner {
-  background-color: #f8f9fa;
+  background-color: #EE6055;
   text-align: right;
 	padding: 32px;
-	border-bottom: solid 1px black;
+	border-bottom: solid 1px #EE6055;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: row;
@@ -10,7 +11,7 @@
 }
 
 .title {
-  color: #31b572;
+  color: #f8f8f8;
   font-size: 2rem;
 }
 

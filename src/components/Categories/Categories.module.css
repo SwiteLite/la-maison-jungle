@@ -1,8 +1,18 @@
 .categories {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
 	text-align: center;
-	padding-top: 30px;
+	padding-top: 20px;
+	flex-direction: row;
 }
 
 .categoriesSelect {
 	margin-right: 15px;
+	margin-left: 5px;
+	padding: 4px 10px;
+	border: 1px solid #31b572;
+	border-radius: 15px;
+	font-size: 1rem;
+	font-weight: 500;
 }
